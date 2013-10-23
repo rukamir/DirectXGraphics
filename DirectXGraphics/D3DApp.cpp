@@ -1,8 +1,11 @@
 #include "D3DApp.h"
 #include <tchar.h>
 
+#include "StatesD3DApp.h"
+
 D3DApp::D3DApp(void)
 {
+		m_FSM.m_pCurrentState = new IntState();//
 }
 
 D3DApp::~D3DApp(void)
@@ -11,6 +14,7 @@ D3DApp::~D3DApp(void)
 
 void D3DApp::Update(float dt)
 {
+	m_FSM.Update(dt);
 }
 
 void D3DApp::InitD3D(HWND hWnd, HINSTANCE& hInst, bool bWindowed)

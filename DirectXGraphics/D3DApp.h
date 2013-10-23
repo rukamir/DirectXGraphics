@@ -1,11 +1,13 @@
 #pragma once
 
 #include "DirectX.h"
+#include "FSM.h"
 
 class D3DApp :
 	public DirectX
 {
 protected:
+	FSM<D3DApp>			m_FSM;
 	D3DXVECTOR2 m_MousePos;
 
 public:

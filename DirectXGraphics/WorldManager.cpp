@@ -5,6 +5,9 @@
 WorldManager::WorldManager()
 {
 	m_iNVID = 0;
+
+	m_GraphicsCore = new GraphicsCore();
+	m_GraphicsCore->Initialize(gD3DDev);
 }
 
 WorldManager::~WorldManager()
@@ -48,6 +51,8 @@ float GetSqDistance(D3DXVECTOR3 p1, D3DXVECTOR3 p2)
 
 void WorldManager::Update(float dt)
 {
+	m_GraphicsCore->Update(dt);
+	m_GraphicsCore->Render();
 }
 
 void WorldManager::Render()

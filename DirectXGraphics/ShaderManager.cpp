@@ -25,6 +25,31 @@ bool ShaderManager::Register(DWORD flags, Entity *ent){
 }
 
 void ShaderManager::Render(){
+	D3DXMATRIX Translation, Rotation, Scale;
+
+	// Begin passes.
+	UINT numPasses = 0;
+
+	//for (const auto &ent : m_mRegistry.find(BASIC)->second)
+	//{
+	//	(mFX->Begin(&numPasses, 0));
+	//	for(UINT i = 0; i < numPasses; ++i)
+	//	{
+	//		(mFX->BeginPass(i));
+
+	//		D3DXMatrixScaling(&Scale, 1, 1, 1);
+	//		//D3DXMatrixRotationQuaternion(&Rotation, &m_qHeading);
+	//		D3DXMatrixIdentity(&Rotation);
+	//		D3DXMatrixTranslation(&Translation, m_vPosition.x, m_vPosition.y, m_vPosition.z);
+
+	//		(mFX->SetMatrix(mhWVP, &(Scale*Rotation*Translation*viewMatrix*projMatrix)));
+	//		(mFX->CommitChanges());
+	//		(m_mSphere->DrawSubset(0));
+
+	//		(mFX->EndPass());
+	//	}
+	//	(mFX->End());
+	//}
 }
 
 void ShaderManager::SetUpBasic(){

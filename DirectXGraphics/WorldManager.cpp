@@ -52,6 +52,8 @@ float GetSqDistance(D3DXVECTOR3 p1, D3DXVECTOR3 p2)
 void WorldManager::Update(float dt)
 {
 	m_GraphicsCore->Update(dt);
+
+
 	m_GraphicsCore->Render();
 }
 

@@ -38,4 +38,11 @@ private:
 	ID3DXEffect *m_FX;
 
 	void loadMesh(std::string meshName, std::string meshFile);
+
+	// Stats display
+	ID3DXFont*	statFont;
+	float mFPS;
+	float mMilliSecPerFrame;
+	void calculateFPS(float dt);
+	void DisplayStats();
 };

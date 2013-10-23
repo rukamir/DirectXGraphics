@@ -147,7 +147,7 @@ void DirectX::EnableFullScreenMode(bool enable)
 
 	// Reset the device with the changes.
 	OnLostDevice();
-	HR(gD3DDev->Reset(&md3dPP));
+	HR(m_pD3Device->Reset(&md3dPP));
 	OnResetDevice();
 }
 
@@ -170,7 +170,7 @@ void DirectX::EndScene()
 
 bool DirectX::IsDeviceLost()
 {
-	HRESULT hr = gD3DDev->TestCooperativeLevel();
+	HRESULT hr = m_pD3Device->TestCooperativeLevel();
 	
 	if( hr == D3DERR_DEVICELOST )
 	{
@@ -186,7 +186,7 @@ bool DirectX::IsDeviceLost()
 	else if( hr == D3DERR_DEVICENOTRESET )
 	{
 		OnLostDevice();
-		HR(gD3DDev->Reset(&md3dPP));
+		HR(m_pD3Device->Reset(&md3dPP));
 		OnResetDevice();
 		// Not lost anymore
 		return false;

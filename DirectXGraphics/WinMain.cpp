@@ -84,9 +84,8 @@ int WINAPI WinMain(	HINSTANCE hInstance,
 
 	//set up and initialize Direct3D
 	dapp.InitD3D(hWnd,hInstance, true);
-	dapp.CreateFPSDisplay();
 	// enter the main loop:
-	gD3DDev = *dapp.GetDevice();
+	//gD3DDev = *dapp.GetDevice();
     // this struct holds Windows event messages
     MSG msg;
 

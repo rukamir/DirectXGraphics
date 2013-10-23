@@ -1,7 +1,7 @@
 #include "StatesD3DApp.h"
 #include "D3DApp.h"
 #include "DirectInput.h"
-#include "Camera.h"
+//#include "Camera.h"
 #include "WorldManager.h"
 
 IntState::IntState()
@@ -17,7 +17,7 @@ void IntState::InitializeState(D3DApp* app)
 }
 void IntState::UpdateScene(D3DApp* app, float dt)
 {
-	CAM->Update();
+	//CAM->Update();
 	WMI->Update(dt);
 }
 void IntState::RenderScene(D3DApp* app)

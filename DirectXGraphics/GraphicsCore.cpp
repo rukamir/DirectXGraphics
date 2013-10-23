@@ -27,7 +27,7 @@ void GraphicsCore::OnLostDevice(){
 }
 
 void GraphicsCore::Update(float dt){
-	m_camera->Update();
+	//m_camera->Update();
 	//gStats->update(dt);
 }
 
@@ -42,7 +42,7 @@ void GraphicsCore::Render(){
 	m_FX->Begin(&numPasses, 0);
 	m_FX->BeginPass(0);
 
-	D3DXMATRIX CameraVP = m_camera->GetViewMatrix();
+	//D3DXMATRIX CameraVP = m_camera->GetViewMatrix();
 
 	////iterate throuh mesh components and render
 	//for(auto object : GraphicObjects)

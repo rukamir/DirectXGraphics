@@ -1,12 +1,6 @@
 #include "WorldManager.h"
-//#include "MeshManager.h"
 #include "d3dUtil.h"
-//#include "GraphicsManager.h"
-#include "Camera.h"
-//#include "FXManager.h"
 #include "DirectX.h"
-//#include "TextureManager.h"
-//#include "Vertex.h"
 
 WorldManager::WorldManager()
 {

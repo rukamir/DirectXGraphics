@@ -6,8 +6,8 @@
 #include <string.h>
 
 #include "Camera.h"
-//#include "GfxStats.h"
-//#include "MeshComponents.h"
+
+//class Camera;
 
 class GraphicsCore {
 private:

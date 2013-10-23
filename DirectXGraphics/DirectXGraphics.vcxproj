@@ -72,6 +72,7 @@
     <ClCompile Include="DirectInput.cpp" />
     <ClCompile Include="DirectX.cpp" />
     <ClCompile Include="GraphicsCore.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="StatesD3DApp.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -86,10 +87,14 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FSM.h" />
     <ClInclude Include="GraphicsCore.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StatesD3DApp.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="WorldManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\color.fx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

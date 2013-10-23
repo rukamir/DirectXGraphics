@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "Camera.h"
+#include "ShaderManager.h"
 
 //class Camera;
 
@@ -14,6 +15,7 @@ private:
 	LPDIRECT3DDEVICE9		m_Device;
 	//GfxStats				*gStats;
 	Camera					*m_camera;
+	ShaderManager			m_ShaderManager;
 
 	//std::map<std::string, MeshComponents*>	m_mMeshes;
 	//std::vector<MeshComponents>				*allMesh;

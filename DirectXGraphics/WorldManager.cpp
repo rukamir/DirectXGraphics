@@ -35,6 +35,9 @@ Entity* WorldManager::GetEntityById(int id)
 	return 0;
 }
 
+Entity* WorldManager::CreateSphere(){
+	return NULL;
+}
 
 int WorldManager::GetNVID()
 {

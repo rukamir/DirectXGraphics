@@ -13,16 +13,18 @@ class WorldManager
 private:
 	GraphicsCore*				m_GraphicsCore;
 	std::vector<Entity*>		m_vEntities;
+	int m_iNVID;								// next valid ID
 
 public:
-	//Obj3D						*myObj;
 	WorldManager();
 	~WorldManager();
 
 	Entity* GetEntityById(int id);
 
+	// Create Functions
+	Entity* CreateSphere();
+
 private:
-	int m_iNVID;								// next valid ID
 
 public:
 	int GetNVID();								// get next valid ID
@@ -31,7 +33,7 @@ public:
 
 	void ResetWorldManager();
 
-	static WorldManager* Instance();\
+	static WorldManager* Instance();
 };
 
 #endif	// end WORLDMANAGER_H

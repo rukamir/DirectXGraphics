@@ -7,6 +7,7 @@
 
 #include "Camera.h"
 #include "ShaderManager.h"
+#include "MeshManager.h"
 
 //class Camera;
 
@@ -16,6 +17,7 @@ private:
 	//GfxStats				*gStats;
 	Camera					*m_camera;
 	ShaderManager			m_ShaderManager;
+	//MeshManager				m_MeshManager;
 
 	//std::map<std::string, MeshComponents*>	m_mMeshes;
 	//std::vector<MeshComponents>				*allMesh;

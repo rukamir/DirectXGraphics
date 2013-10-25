@@ -20,7 +20,7 @@ void MeshManager::Initialize(LPDIRECT3DDEVICE9 device){
 
 bool MeshManager::AddMeshToCollection(string fileName, string meshName){
 	// Create new MeshComponents object
-	MeshCompenents* meshStuff = new MeshCompenents();
+	MeshComponents* meshStuff = new MeshComponents();
 
 	D3DXLoadMeshFromX(fileName.c_str(),				// load this file
 					  D3DXMESH_SYSTEMMEM,			// load the mesh into system memory
@@ -46,8 +46,8 @@ bool MeshManager::AddMeshToCollection(string fileName, string meshName){
 	}
 }
 
-MeshCompenents*	MeshManager::GetMesh(string meshName){
-	MeshCompenents* meshComp = NULL;
+MeshComponents*	MeshManager::GetMesh(string meshName){
+	MeshComponents* meshComp = NULL;
 
 	meshComp = m_mMeshCollection.find(meshName)->second;
 

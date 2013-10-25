@@ -1,13 +1,13 @@
 #pragma once
 
 #include <D3dx9math.h>
+#include "BaseComponent.h"
 //#include "MeshBase.h"
 
 class Entity
 {
 protected:
 	int				m_id;
-	D3DXVECTOR3		m_pos;
 	D3DXVECTOR3		m_velocity;
 	D3DXVECTOR3		m_acceleration;
 	D3DXVECTOR3		m_target;
@@ -20,12 +20,10 @@ protected:
 
 	double		m_maxSpeed;
 	double		m_maxAccel;
-
-	//ShaderBase*		m_Shader;
-	//MeshBase*		m_mesh;
 	D3DXVECTOR3		orientation;
-
 public:
+	D3DXVECTOR3		m_pos;
+	GraphicsComponent				*m_Graphics;
 
 	Entity(){}
 	Entity(int id)					{SetID(id);}

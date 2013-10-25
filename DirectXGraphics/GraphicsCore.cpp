@@ -16,6 +16,10 @@ GraphicsCore::~GraphicsCore(){
 void GraphicsCore::Initialize(LPDIRECT3DDEVICE9 device){
 	m_Device = device;
 
+	// Initialize Managers
+	m_ShaderManager.Initialize(m_Device);
+	m_MeshManager.Initialize(m_Device);
+
 	// For displaying stats ie framerate
 	D3DXFONT_DESC fontDesc;
 	fontDesc.Height          = 18;
@@ -64,6 +68,16 @@ void GraphicsCore::Render(){
 
 	m_Device->EndScene();
 	m_Device->Present(0, 0, 0, 0);
+}
+
+GraphicsComponent* GraphicsCore::CreateSphereGraphicsComponent(GraphicsComponent* comp){
+	comp = new GraphicsComponent();
+	comp->SetMeshComponents( m_MeshManager.GetMesh("sphere") );
+	comp->SetColor(0.0f, 200.0f, 100.0f);
+	comp->SetScale(1.0f, 1.0f, 1.0f);
+	m_ShaderManager.Register(BASIC, comp);
+
+	return comp;
 }
 
 void GraphicsCore::loadMesh(std::string meshName, std::string meshFile){

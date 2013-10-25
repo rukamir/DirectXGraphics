@@ -18,7 +18,7 @@ bool ShaderManager::Register(DWORD flags, GraphicsComponent *ent){
 
 
 	// If this flag is on push back
-	if (flags && BASIC)
+	if ((flags & BASIC) == BASIC)
 		m_mRegistry.find(flags && BASIC)->second->push_back(ent);
 	else
 		return false;
@@ -33,31 +33,31 @@ void ShaderManager::Render(D3DXMATRIX view, D3DXMATRIX proj){
 	// Begin passes.
 	UINT numPasses = 0;
 
-	//for (const auto &ent : *m_mRegistry.find(BASIC)->second)
-	//{
-	//	(mFX->Begin(&numPasses, 0));
-	//	for(UINT i = 0; i < numPasses; ++i)
-	//	{
-	//		(mFX->BeginPass(i));
+	for (const auto &ent : *m_mRegistry.find(BASIC)->second)
+	{
+		(mFX->Begin(&numPasses, 0));
+		for(UINT i = 0; i < numPasses; ++i)
+		{
+			(mFX->BeginPass(i));
 
-	//		D3DXMatrixScaling(&Scale, 1, 1, 1);
-	//		//D3DXMatrixRotationQuaternion(&Rotation, &m_qHeading);
-	//		D3DXMatrixIdentity(&Rotation);
-	//		D3DXMatrixTranslation(&Translation, 
-	//							  ent->GetPosition().x, 
-	//							  ent->GetPosition().y, 
-	//							  ent->GetPosition().z );
+			D3DXMatrixScaling(&Scale, 1, 1, 1);
+			//D3DXMatrixRotationQuaternion(&Rotation, &m_qHeading);
+			D3DXMatrixIdentity(&Rotation);
+			D3DXMatrixTranslation(&Translation, 
+								  ent->GetPosition().x, 
+								  ent->GetPosition().y, 
+								  ent->GetPosition().z );
 
-	//		(mFX->SetVector(mhColor, 
-	//						&D3DXVECTOR4(ent->GetColor().r, ent->GetColor().g, ent->GetColor().b, 0.0f)));
-	//		(mFX->SetMatrix(mhWVP, &(Scale*Rotation*Translation*view*proj)));
-	//		(mFX->CommitChanges());
-	//		(ent->m_mesh->DrawSubset(0));
+			(mFX->SetVector(mhColor, 
+							&D3DXVECTOR4(ent->GetColor().r, ent->GetColor().g, ent->GetColor().b, 0.0f)));
+			(mFX->SetMatrix(mhWVP, &(Scale*Rotation*Translation*view*proj)));
+			(mFX->CommitChanges());
+			(ent->GetMeshComponents()->mesh->DrawSubset(0));
 
-	//		(mFX->EndPass());
-	//	}
-	//	(mFX->End());
-	//}
+			(mFX->EndPass());
+		}
+		(mFX->End());
+	}
 }
 
 void ShaderManager::SetUpBasic(){

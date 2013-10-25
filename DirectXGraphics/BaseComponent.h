@@ -35,7 +35,8 @@ private:
 
 public:
 	DWORD					m_shaderFlags;
-	GraphicsComponent(){}
+	GraphicsComponent(){
+		}
 	~GraphicsComponent(){}
 
 	D3DXCOLOR			GetColor()
@@ -51,5 +52,7 @@ public:
 	MeshComponents* GetMeshComponents()
 		{return m_meshComp;}
 	void SetMeshComponents(MeshComponents* meshComp)
-		{m_meshComp = meshComp;}
+		{
+			m_meshComp = meshComp;
+		}
 };

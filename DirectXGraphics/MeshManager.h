@@ -21,4 +21,7 @@ public:
 
 	bool AddMeshToCollection(string fileName, string meshName);
 	MeshComponents*	GetMesh(string meshName);
+
+private:
+	void CreateSphereMesh();
 };

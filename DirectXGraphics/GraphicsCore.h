@@ -29,6 +29,8 @@ public:
 	void Update(float dt);
 	void Render();
 
+	GraphicsComponent* CreateSphereGraphicsComponent(GraphicsComponent* comp);
+
 private:
 	void loadMesh(std::string meshName, std::string meshFile);
 

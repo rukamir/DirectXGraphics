@@ -74,6 +74,7 @@
     <ClCompile Include="GraphicsCore.cpp" />
     <ClCompile Include="MeshManager.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="StatesD3DApp.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="MeshBase.h" />
     <ClInclude Include="MeshManager.h" />
     <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StatesD3DApp.h" />
     <ClInclude Include="Timer.h" />

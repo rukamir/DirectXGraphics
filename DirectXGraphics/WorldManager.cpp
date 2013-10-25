@@ -1,6 +1,7 @@
 #include "WorldManager.h"
 #include "d3dUtil.h"
 #include "DirectX.h"
+#include "Sphere.h"
 
 WorldManager::WorldManager()
 {
@@ -36,7 +37,16 @@ Entity* WorldManager::GetEntityById(int id)
 }
 
 Entity* WorldManager::CreateSphere(){
-	return NULL;
+	Sphere* sphere = new Sphere( GetNVID() );
+
+	sphere->SetPosition(D3DXVECTOR3(0.0f, 0.0f,0.0f));
+
+	sphere->m_Graphics = m_GraphicsCore->CreateSphereGraphicsComponent( sphere->m_Graphics );
+	sphere->m_Graphics->AssignPosition(&sphere->m_pos);
+
+	m_vEntities.push_back(sphere);
+
+	return sphere;
 }
 
 int WorldManager::GetNVID()

@@ -4,20 +4,6 @@ GraphicsCore::GraphicsCore(){
 	m_camera		=	new Camera();
 	//gStats			=	new GfxStats();
 
-	//D3DXFONT_DESC fpsDesc;
-	//fpsDesc.Height          = 20;
- //   fpsDesc.Width           = 5;
- //   fpsDesc.Weight          = FW_BOLD;
- //   fpsDesc.MipLevels       = 0;
- //   fpsDesc.Italic          = false;
- //   fpsDesc.CharSet         = DEFAULT_CHARSET;
- //   fpsDesc.OutputPrecision = OUT_DEFAULT_PRECIS;
- //   fpsDesc.Quality         = DEFAULT_QUALITY;
- //   fpsDesc.PitchAndFamily  = DEFAULT_PITCH | FF_DONTCARE;
-	////fpsDesc.FaceName		=	L"Arial";
- //   //strcpy_s(fpsDesc.FaceName, ("Comic Sans MS"));
-
-	//D3DXCreateFontIndirect(m_Device, &fpsDesc, &statFont);
 }
 
 GraphicsCore::~GraphicsCore(){
@@ -30,6 +16,7 @@ GraphicsCore::~GraphicsCore(){
 void GraphicsCore::Initialize(LPDIRECT3DDEVICE9 device){
 	m_Device = device;
 
+	// For displaying stats ie framerate
 	D3DXFONT_DESC fontDesc;
 	fontDesc.Height          = 18;
     fontDesc.Width           = 0;
@@ -40,12 +27,9 @@ void GraphicsCore::Initialize(LPDIRECT3DDEVICE9 device){
     fontDesc.OutputPrecision = OUT_DEFAULT_PRECIS;
     fontDesc.Quality         = DEFAULT_QUALITY;
     fontDesc.PitchAndFamily  = DEFAULT_PITCH | FF_DONTCARE;
-    //_tcscpy(fontDesc.FaceName, _T("Times New Roman"));
 	strcpy_s(fontDesc.FaceName, "Times New Roman");
 
-
 	D3DXCreateFontIndirect(m_Device, &fontDesc, &statFont);
-
 }
 
 void GraphicsCore::Shutdown(){
@@ -55,7 +39,7 @@ void GraphicsCore::OnResetDevice(){
 	D3DVIEWPORT9 viewport;
 	m_Device->GetViewport(&viewport);
 
-	//camera->OnResetDevice(viewport.Width, viewport.Height);
+	//m_camera->OnResetDevice(viewport.Width, viewport.Height);
 }
 
 void GraphicsCore::OnLostDevice(){
@@ -72,28 +56,8 @@ void GraphicsCore::Render(){
 	m_Device->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,  D3DCOLOR_XRGB(200,0,0), 1.0f, 0);
 	m_Device->BeginScene();
 
-	m_ShaderManager.Render();
-
-	//m_Stats->display();
-
-
-	////m_FX->SetValue(m_Light, &m_GlobalLight, sizeof(DirectionalLight));
-	////m_FX->SetValue(m_EyePos, &camera->m_Position, sizeof(D3DXVECTOR3));
-
-	//UINT numPasses = 0;
-	//m_FX->Begin(&numPasses, 0);
-	//m_FX->BeginPass(0);
-
-	////D3DXMATRIX CameraVP = m_camera->GetViewMatrix();
-
-	//////iterate throuh mesh components and render
-	////for(auto object : GraphicObjects)
-	////{
-	////}
-
-	//m_FX->EndPass();
-	//m_FX->End();
-
+	// Render everything in ShaderManager
+	m_ShaderManager.Render(m_camera->GetViewMatrix(), m_camera->GetProjectionMatrix());
 
 	// Display stats
 	DisplayStats();

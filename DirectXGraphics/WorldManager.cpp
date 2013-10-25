@@ -20,6 +20,8 @@ WorldManager::~WorldManager()
 	}
 	m_vEntities.clear();
 
+	if (m_GraphicsCore)
+		delete m_GraphicsCore;
 }
 
 Entity* WorldManager::GetEntityById(int id)

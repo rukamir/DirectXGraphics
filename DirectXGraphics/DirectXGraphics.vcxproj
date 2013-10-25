@@ -79,6 +79,7 @@
     <ClCompile Include="WorldManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="D3DApp.h" />
     <ClInclude Include="d3dUtil.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FSM.h" />
     <ClInclude Include="GraphicsCore.h" />
+    <ClInclude Include="MeshBase.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StatesD3DApp.h" />
@@ -95,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\color.fx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Shaders\Transform.fx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </FxCompile>
   </ItemGroup>

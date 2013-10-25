@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 
-#include "Entity.h"
+#include "BaseComponent.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ class ShaderManager{
 private:
 	// Map containing flag for shaders and
 	// entities registers to the shader
-	map<DWORD, vector<Entity*>>		m_mRegistry;
+	map<DWORD, vector<GraphicsComponent*>*>		m_mRegistry;
 	LPDIRECT3DDEVICE9				m_Device;
 
 public:
@@ -25,9 +25,9 @@ public:
 
 	void Initialize(LPDIRECT3DDEVICE9 device);
 
-	bool Register(DWORD, Entity *ent);
+	bool Register(DWORD, GraphicsComponent *ent);
 
-	void Render();
+	void Render(D3DXMATRIX view, D3DXMATRIX proj);
 
 private:
 	ID3DXEffect*		mFX;

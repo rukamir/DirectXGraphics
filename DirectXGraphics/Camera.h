@@ -3,7 +3,7 @@
 
 #include <d3dx9.h>
 
-#define CAM Camera::Instance()
+//#define CAM Camera::Instance()
 
 class Camera
 {

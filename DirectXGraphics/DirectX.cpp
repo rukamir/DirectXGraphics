@@ -5,7 +5,7 @@ LPDIRECT3DDEVICE9 gD3DDev = 0;
 
 DirectX::DirectX()
 {
-	m_bVsync		= true;
+	m_bVsync		= false;
 	m_pD3DObject	= 0;
 	m_pD3Device	= 0;
 }

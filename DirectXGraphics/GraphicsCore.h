@@ -3,20 +3,18 @@
 #include <d3dx9.h>
 #include <vector>
 #include <map>
-#include <string.h>
+#include <string>
 
 #include "Camera.h"
-
-//class Camera;
+#include "ShaderManager.h"
+#include "MeshManager.h"
 
 class GraphicsCore {
 private:
 	LPDIRECT3DDEVICE9		m_Device;
-	//GfxStats				*gStats;
 	Camera					*m_camera;
-
-	//std::map<std::string, MeshComponents*>	m_mMeshes;
-	//std::vector<MeshComponents>				*allMesh;
+	ShaderManager			m_ShaderManager;
+	MeshManager				m_MeshManager;
 
 public:
 	GraphicsCore();
@@ -31,9 +29,15 @@ public:
 	void Update(float dt);
 	void Render();
 
-private:
-	//Effect Handles
-	ID3DXEffect *m_FX;
+	GraphicsComponent* CreateSphereGraphicsComponent(GraphicsComponent* comp);
 
+private:
 	void loadMesh(std::string meshName, std::string meshFile);
+
+	// Stats display
+	ID3DXFont*	statFont;
+	float mFPS;
+	float mMilliSecPerFrame;
+	void calculateFPS(float dt);
+	void DisplayStats();
 };

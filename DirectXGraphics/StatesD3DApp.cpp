@@ -14,9 +14,16 @@ IntState::~IntState()
 
 void IntState::InitializeState(D3DApp* app)
 {
+	//WMI->CreateSphere();
 }
 void IntState::UpdateScene(D3DApp* app, float dt)
 {
+	static bool test = false;
+	if (!test){
+		test = true;
+		WMI->CreateSphere();
+	}
+
 	//CAM->Update();
 	WMI->Update(dt);
 }

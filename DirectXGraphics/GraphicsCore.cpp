@@ -2,6 +2,9 @@
 
 GraphicsCore::GraphicsCore(){
 	m_camera		=	new Camera();
+	m_camera->setPosition(&D3DXVECTOR3(0.0f, 0.0f, 20.0f));
+	m_camera->SetLookAt(D3DXVECTOR3(5.0f, 5.0f, 0.0f));
+	//m_camera->
 	//gStats			=	new GfxStats();
 
 }
@@ -51,7 +54,7 @@ void GraphicsCore::OnLostDevice(){
 }
 
 void GraphicsCore::Update(float dt){
-	m_camera->Update();
+	//m_camera->Update();
 	calculateFPS(dt);
 	//gStats->update(dt);
 }
@@ -61,7 +64,17 @@ void GraphicsCore::Render(){
 	m_Device->BeginScene();
 
 	// Render everything in ShaderManager
-	m_ShaderManager.Render(m_camera->GetViewMatrix(), m_camera->GetProjectionMatrix());
+	static D3DXMATRIX view, proj;
+	//if (!view){
+		view = m_camera->getViewMatrix();
+		D3DXMatrixPerspectiveFovLH(&proj,
+									D3DXToRadian(45),    // the horizontal field of view
+									4 / 3,    // the aspect ratio
+									1.0f,    // the near view-plane
+									500.0f);    // the far view-plane
+
+	//}
+	m_ShaderManager.Render(view, proj);
 
 	// Display stats
 	DisplayStats();

@@ -11,7 +11,7 @@ WorldManager::WorldManager()
 	m_GraphicsCore->Initialize(gD3DDev);
 
 	// Add meshes
-	m_GraphicsCore->m_MeshManager.AddMeshToCollection("Meshes/battle_cruiser_1.x", "tiger");
+	m_GraphicsCore->m_MeshManager.AddMeshToCollection("Meshes/tiger.x", "tiger");
 }
 
 WorldManager::~WorldManager()

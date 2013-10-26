@@ -41,21 +41,18 @@ void ShaderManager::Render(D3DXMATRIX view, D3DXMATRIX proj){
 			(mFX->BeginPass(i));
 
 			D3DXMatrixScaling(&Scale, 1, 1, 1);
-			//D3DXMatrixRotationQuaternion(&Rotation, &m_qHeading);
 			D3DXMatrixIdentity(&Rotation);
 			D3DXMatrixTranslation(&Translation, 
 								  ent->GetPosition().x, 
 								  ent->GetPosition().y, 
 								  ent->GetPosition().z );
 
-			//(mFX->SetVector(mhColor, 
-			//				&D3DXVECTOR4(ent->GetColor().r, ent->GetColor().g, ent->GetColor().b, 0.0f)));
 			(mFX->SetMatrix(mhWVP, &(Scale*Rotation*Translation*view*proj)));
-			//mFX->SetTexture(mhTexture, ent->GetMeshComponents()->texture);
-			//(mFX->CommitChanges());
+
 			for(DWORD i = 0; i < ent->GetMeshComponents()->numMaterials; i++)    // loop through each subset
 			{
-				mFX->SetTexture(mhTexture, ent->GetMeshComponents()->texture[i]);
+				if (ent->GetMeshComponents()->texture)
+					mFX->SetTexture(mhTexture, ent->GetMeshComponents()->texture[i]);
 				mFX->CommitChanges();
 				//gD3DDev->SetMaterial(&material[i]);    // set the appropriate material for the subset
 				//if(texture[i] != NULL)    // if the subset has a texture (if texture is not NULL)

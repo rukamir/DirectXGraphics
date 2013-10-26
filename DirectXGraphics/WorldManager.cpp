@@ -11,7 +11,7 @@ WorldManager::WorldManager()
 	m_GraphicsCore->Initialize(gD3DDev);
 
 	// Add meshes
-	m_GraphicsCore->m_MeshManager.AddMeshToCollection("airplane 2.x", "tiger");
+	m_GraphicsCore->m_MeshManager.AddMeshToCollection("Meshes/battle_cruiser_1.x", "tiger");
 }
 
 WorldManager::~WorldManager()
@@ -44,7 +44,6 @@ Entity* WorldManager::CreateSphere(){
 
 	sphere->SetPosition(D3DXVECTOR3(0.0f, 0.0f,0.0f));
 
-	//sphere->m_Graphics = m_GraphicsCore->CreateSphereGraphicsComponent( sphere->m_Graphics );
 	sphere->m_Graphics = m_GraphicsCore->CreateGraphicsByName("tiger");
 	sphere->m_Graphics->AssignPosition(&sphere->m_pos);
 

@@ -83,7 +83,7 @@ MeshComponents*	MeshManager::GetMesh(string meshName){
 void MeshManager::CreateSphereMesh(){
 	// Create MeshComponents for Sphere mesh
 	MeshComponents* meshComp = new MeshComponents();
-	meshComp->numMaterials		= 0;
+	meshComp->numMaterials		= 1;
 	meshComp->bufMeshMaterial	= NULL;
 	meshComp->material			= NULL;
 	meshComp->texture			= NULL;

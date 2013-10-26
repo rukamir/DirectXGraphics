@@ -54,7 +54,7 @@ void GraphicsCore::OnLostDevice(){
 }
 
 void GraphicsCore::Update(float dt){
-	//m_camera->Update();
+	m_camera->Update();
 	calculateFPS(dt);
 	//gStats->update(dt);
 }

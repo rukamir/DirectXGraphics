@@ -10,6 +10,7 @@ public:
 	Camera();
 	Camera(CameraType cameraType);
 	~Camera();
+	void Update();
 
 	void SetLookAt(D3DXVECTOR3 &target);
 	D3DXMATRIX getViewMatrix();

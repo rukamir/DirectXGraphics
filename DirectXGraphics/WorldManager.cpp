@@ -45,7 +45,7 @@ Entity* WorldManager::CreateSphere(){
 	sphere->SetPosition(D3DXVECTOR3(0.0f, 0.0f,0.0f));
 
 	//sphere->m_Graphics = m_GraphicsCore->CreateSphereGraphicsComponent( sphere->m_Graphics );
-	sphere->m_Graphics = m_GraphicsCore->CreateGraphicsByName("tiger");
+	sphere->m_Graphics = m_GraphicsCore->CreateGraphicsByName("sphere");
 	sphere->m_Graphics->AssignPosition(&sphere->m_pos);
 
 	m_vEntities.push_back(sphere);

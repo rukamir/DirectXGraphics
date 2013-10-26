@@ -55,7 +55,8 @@ void ShaderManager::Render(D3DXMATRIX view, D3DXMATRIX proj){
 			//(mFX->CommitChanges());
 			for(DWORD i = 0; i < ent->GetMeshComponents()->numMaterials; i++)    // loop through each subset
 			{
-				mFX->SetTexture(mhTexture, ent->GetMeshComponents()->texture[i]);
+				if (ent->GetMeshComponents()->texture)
+					mFX->SetTexture(mhTexture, ent->GetMeshComponents()->texture[i]);
 				mFX->CommitChanges();
 				//gD3DDev->SetMaterial(&material[i]);    // set the appropriate material for the subset
 				//if(texture[i] != NULL)    // if the subset has a texture (if texture is not NULL)

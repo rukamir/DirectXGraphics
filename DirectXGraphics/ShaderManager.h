@@ -34,5 +34,6 @@ private:
 	D3DXHANDLE			mhWVP;
 	D3DXHANDLE			mhTech;
 	D3DXHANDLE			mhColor;
+	D3DXHANDLE			mhTexture;
 	void SetUpBasic();
 };

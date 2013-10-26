@@ -70,10 +70,20 @@ void GraphicsCore::Render(){
 	m_Device->Present(0, 0, 0, 0);
 }
 
-GraphicsComponent* GraphicsCore::CreateSphereGraphicsComponent(GraphicsComponent* comp){
-	comp = new GraphicsComponent();
+GraphicsComponent* GraphicsCore::CreateSphereGraphicsComponent(){
+	GraphicsComponent* comp = new GraphicsComponent();
 	comp->SetMeshComponents( m_MeshManager.GetMesh("sphere") );
-	comp->SetColor(0.0f, 200.0f, 100.0f);
+	comp->SetColor(0.0f, 0.0f, 255.0f);
+	comp->SetScale(1.0f, 1.0f, 1.0f);
+	m_ShaderManager.Register(BASIC, comp);
+
+	return comp;
+}
+
+GraphicsComponent* GraphicsCore::CreateGraphicsByName(string graphicName){
+	GraphicsComponent *comp = new GraphicsComponent();
+	comp->SetMeshComponents( m_MeshManager.GetMesh(graphicName) );
+	comp->SetColor(0.0f, 0.0f, 255.0f);
 	comp->SetScale(1.0f, 1.0f, 1.0f);
 	m_ShaderManager.Register(BASIC, comp);
 

@@ -5,4 +5,6 @@ Sphere::Sphere(int id){
 }
 
 Sphere::~Sphere(){
+	if (m_Graphics)
+		delete m_Graphics;
 }

@@ -90,7 +90,6 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FSM.h" />
     <ClInclude Include="GraphicsCore.h" />
-    <ClInclude Include="MeshBase.h" />
     <ClInclude Include="MeshManager.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="Sphere.h" />

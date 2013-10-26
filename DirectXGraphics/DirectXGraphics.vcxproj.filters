@@ -107,9 +107,6 @@
     <ClInclude Include="GraphicsCore.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="MeshBase.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderManager.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>

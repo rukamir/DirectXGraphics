@@ -14,9 +14,9 @@ private:
 	LPDIRECT3DDEVICE9		m_Device;
 	Camera					*m_camera;
 	ShaderManager			m_ShaderManager;
-	MeshManager				m_MeshManager;
 
 public:
+	MeshManager				m_MeshManager;
 	GraphicsCore();
 	~GraphicsCore();
 
@@ -29,7 +29,8 @@ public:
 	void Update(float dt);
 	void Render();
 
-	GraphicsComponent* CreateSphereGraphicsComponent(GraphicsComponent* comp);
+	GraphicsComponent* CreateSphereGraphicsComponent();
+	GraphicsComponent* CreateGraphicsByName(string graphicName);
 
 private:
 	void loadMesh(std::string meshName, std::string meshFile);

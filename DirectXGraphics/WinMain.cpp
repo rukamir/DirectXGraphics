@@ -57,7 +57,7 @@ int WINAPI WinMain(	HINSTANCE hInstance,
 	// create the window and use the result as the handle
     hWnd = CreateWindowEx(NULL,
                           "WindowClass1",    // name of the window class
-                          "Influence Mapping by Jimmy Roland",   // title of the window
+                          "DirectXGraphics by Jimmy Roland",   // title of the window
                           WS_OVERLAPPEDWINDOW,    // window style
                           300,    // x-position of the window
                           300,    // y-position of the window

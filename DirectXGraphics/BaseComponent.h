@@ -42,7 +42,7 @@ public:
 	D3DXCOLOR			GetColor()
 		{return m_color;}
 	void				SetColor(float r, float g, float b)
-		{m_color = D3DXCOLOR(r, g, b, 0);}
+		{m_color = D3DXCOLOR(r, g, b, 0.0f);}
 
 	D3DXVECTOR3			GetScale()
 		{return m_scale;}

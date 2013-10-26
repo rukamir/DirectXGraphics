@@ -9,6 +9,9 @@ WorldManager::WorldManager()
 
 	m_GraphicsCore = new GraphicsCore();
 	m_GraphicsCore->Initialize(gD3DDev);
+
+	// Add meshes
+	m_GraphicsCore->m_MeshManager.AddMeshToCollection("airplane 2.x", "tiger");
 }
 
 WorldManager::~WorldManager()
@@ -41,7 +44,8 @@ Entity* WorldManager::CreateSphere(){
 
 	sphere->SetPosition(D3DXVECTOR3(0.0f, 0.0f,0.0f));
 
-	sphere->m_Graphics = m_GraphicsCore->CreateSphereGraphicsComponent( sphere->m_Graphics );
+	//sphere->m_Graphics = m_GraphicsCore->CreateSphereGraphicsComponent( sphere->m_Graphics );
+	sphere->m_Graphics = m_GraphicsCore->CreateGraphicsByName("tiger");
 	sphere->m_Graphics->AssignPosition(&sphere->m_pos);
 
 	m_vEntities.push_back(sphere);
@@ -67,28 +71,7 @@ float GetSqDistance(D3DXVECTOR3 p1, D3DXVECTOR3 p2)
 void WorldManager::Update(float dt)
 {
 	m_GraphicsCore->Update(dt);
-
-
 	m_GraphicsCore->Render();
-}
-
-void WorldManager::Render()
-{	
-	//// Clear the backbuffer and depth buffer.
-	//HR(gD3DDev->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0));
-
-	//HR(gD3DDev->BeginScene());
-
-
-	//FXM->SetTechnique();
-	//GraphicsM->Render(FXM->GetFX(), FXM->GetWVP(), CAM->GetViewMatrix(), CAM->GetProjectionMatrix());
-	//	 myObj->Render(D3DXVECTOR3(0.0f, 0.0f ,0.0f));
-
-
-	//HR(gD3DDev->EndScene());
-
-	//// Present the backbuffer.
-	//HR(gD3DDev->Present(0, 0, 0, 0));
 }
 
 void WorldManager::ResetWorldManager()

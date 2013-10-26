@@ -6,10 +6,14 @@ MeshManager::MeshManager(){
 MeshManager::~MeshManager(){
 	// Remove all mesh stuff
 	for (const auto &meshComp : m_vMeshList){
-		meshComp->bufMeshMaterial->Release();
-		delete meshComp->material;
-		meshComp->mesh->Release();
-		delete meshComp->texture;
+		if (meshComp->bufMeshMaterial)
+			meshComp->bufMeshMaterial->Release();
+		if (meshComp->material)
+			delete meshComp->material;
+		if (meshComp->mesh)
+			meshComp->mesh->Release();
+		if (meshComp->texture)
+			delete meshComp->texture;
 		delete meshComp;
 	}
 }
@@ -33,6 +37,25 @@ bool MeshManager::AddMeshToCollection(string fileName, string meshName){
 					  NULL,							// we aren't using effect instances
 					  &meshStuff->numMaterials,		// the number of materials in this model
 					  &meshStuff->mesh);			// put the mesh here
+
+	// retrieve the pointer to the buffer containing the material information
+	D3DXMATERIAL* tempMaterials = (D3DXMATERIAL*)meshStuff->bufMeshMaterial->GetBufferPointer();
+
+	// create a new material buffer for each material in the mesh
+	meshStuff->material = new D3DMATERIAL9[meshStuff->numMaterials];
+	meshStuff->texture = new LPDIRECT3DTEXTURE9[meshStuff->numMaterials];
+	for(DWORD i = 0; i < meshStuff->numMaterials; i++)    // for each material...
+	{
+		meshStuff->material[i] = tempMaterials[i].MatD3D;    // get the material info...
+		meshStuff->material[i].Ambient = meshStuff->material[i].Diffuse;    // and make ambient the same as diffuse
+		meshStuff->texture[i] = 0;
+		if (tempMaterials[i].pTextureFilename)
+		{
+			D3DXCreateTextureFromFile(m_Device, tempMaterials[i].pTextureFilename, &meshStuff->texture[i]);
+		}
+
+	}
+	meshStuff->bufMeshMaterial->Release();
 
 	// Check if mesh was successfully created
 	if(meshStuff->mesh){

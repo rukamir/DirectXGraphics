@@ -29,7 +29,6 @@ private:
 public:
 	int GetNVID();								// get next valid ID
 	void Update(float dt);
-	void Render();
 
 	void ResetWorldManager();
 
